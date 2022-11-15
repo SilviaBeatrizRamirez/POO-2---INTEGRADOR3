@@ -11,11 +11,12 @@ import javax.persistence.*;
 
 @Setter
 @Getter
+// contrutor sin argumento
 @NoArgsConstructor
 @Entity
 @Table(name = "sucursales")
 public class Sucursale {
-
+//id generado de forma automatica
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_grafica", nullable = false)
@@ -34,6 +35,8 @@ public class Sucursale {
     private String altura;
 
     @ManyToOne
+    //La anotación @JoinColumn se usa para especificar el mapeo
+    //    de una columna para una referencia
     @JoinColumn(name="id_usuario")
     private Usuario Usuario;
 

@@ -11,7 +11,9 @@ import javax.persistence.*;
 
 @Setter
 @Getter
+//generará un constructor sin parámetros
 @NoArgsConstructor
+//le acemo saber que es una entidad
 @Entity
 @Table(name = "informes")
 public class Informe {
@@ -41,7 +43,7 @@ public class Informe {
 
     @Column(name="Viernes")
     private String Viernes;
-
+    // nos idica la relacion  uno a uno  con la tabla  pedidos  "un pedido tiene un informe
     @OneToOne
     @JoinColumn(name="id_pedido")
     private Pedido pedidos;
