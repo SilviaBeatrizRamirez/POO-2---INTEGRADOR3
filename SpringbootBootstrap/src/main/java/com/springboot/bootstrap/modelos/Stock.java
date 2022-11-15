@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "stock")
 public class Stock {
-
+//genera  la id de forma automatica
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
@@ -29,8 +29,10 @@ public class Stock {
 
     @Column(name="cantidad")
     private Integer cantidad;
-
+    //una relacion  de mucho  a uno
     @ManyToOne
+    //La anotación @JoinColumn se usa para especificar el mapeo
+    // de una columna para una referencia
     @JoinColumn(name="id_insumos")
     private Insumo insumos;
 

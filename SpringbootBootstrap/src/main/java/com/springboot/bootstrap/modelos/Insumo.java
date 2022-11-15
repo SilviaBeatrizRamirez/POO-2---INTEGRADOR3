@@ -10,10 +10,11 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
+// le acemos saber que es una entidad
 @Entity
 @Table(name = "insumos")
 public class Insumo {
-
+    // genera el ide de tablas de forma automatica
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_informe", nullable = false)

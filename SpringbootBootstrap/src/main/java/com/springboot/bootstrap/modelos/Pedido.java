@@ -11,11 +11,11 @@ import javax.persistence.*;
 
 import java.util.List;
 
-
+//especificamos que es una entidad
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
-
+//genera el id  de la tabla automatico
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
@@ -40,11 +40,11 @@ public class Pedido {
     @Column(name = "observaciones", length = 240)
     @Nullable
     private String observaciones;
-
+//contrutor sin argumento
     public Pedido() {
 
     }
-
+// contrutor con argumento
     public Pedido(Long id, String categoria, Integer dni, String fechapedido, String estado, String observaciones, List<Insumo> insumos) {
         this.id = id;
         this.categoria = categoria;
@@ -63,7 +63,7 @@ public class Pedido {
         this.observaciones = observaciones;
         this.insumos = insumos;
     }
-
+//el get se encarga de mostrar un valor a una propiedad o atributo de un objeto
     public Long getId() {
         return id;
     }
@@ -123,7 +123,8 @@ public class Pedido {
 
         this.observaciones = observaciones;
     }
-
+// colocas @Override cuando vas a sobrescribir un método de una
+// clase al hacer herencia
     @Override
     public String toString() {
         return "Pedido{" +
@@ -137,9 +138,12 @@ public class Pedido {
                 '}';
     }
 
-    @ManyToMany
+    @ManyToMany// es una relacion de mucho  a mucho  con
+    // la tabala pedido a la tabla  insumo
     @JoinTable(
             name = "pedido_tiene_insumos",
+            //La anotación @JoinColumn se usa para especificar el
+            // mapeo de una columna para una referencia
             joinColumns = @JoinColumn(name = "id_pedido"),
             inverseJoinColumns = @JoinColumn(name = "id_insumo"))
     List<Insumo> insumos;

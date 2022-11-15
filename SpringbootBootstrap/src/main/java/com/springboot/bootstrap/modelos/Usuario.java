@@ -32,7 +32,7 @@ public class Usuario {
 
     @Column(name = "email",nullable = false,length = 50,unique = true)
     private String email;
-
+//contrutor sin argumento
     public Usuario() {
 
     }
@@ -114,7 +114,8 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-
+//colocas @Override cuando vas a sobrescribir un método de una
+//// clase al hacer herencia
     @Override
     public String toString() {
         return "Usuario{" +
